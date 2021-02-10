@@ -195,7 +195,7 @@ int getBitString(int set[],int bit[],int size,char ch){
 	return 1;
 }
 void setOperationsAB(int bitA[],int bitB[],char op){
-	int un=0,in=0,df=0,j=0,h=0,k=0,f=0;char cu,ci,cd;
+	int un=0,in=0,df=0,j=0,h=0,k=0;char cu,ci,cd;
 	if(op=='U')
 		printf("\nUnion A U B	   : { ");
 	if(op=='I')
@@ -203,17 +203,17 @@ void setOperationsAB(int bitA[],int bitB[],char op){
 	if(op=='D')
 		printf("\nDifference A - B   : { ");
 	for(int i=0;i<sizeU;i++){
-		f=0;cu=ci=cd='n';
+		cu=ci=cd='n';
 		un=bitA[i]|bitB[i];
 		in=bitA[i]&bitB[i];
 		df=bitA[i]&(!bitB[i]);
 		if(un==1){
-			unAB[h++]=setU[i];f=1;cu='U';}
+			unAB[h++]=setU[i];cu='U';}
 		if(in==1){
-			intrAB[j++]=setU[i];f=1;ci='I';}
+			intrAB[j++]=setU[i];ci='I';}
 		if(df==1){
-			dfAB[k++]=setU[i];f=1;cd='D';}
-		if(f==1 && (cu==op||ci==op||cd==op))
+			dfAB[k++]=setU[i];cd='D';}
+		if(cu==op||ci==op||cd==op)
 			printf("%d  ",setU[i]);
 	}
 	printf("}");	
